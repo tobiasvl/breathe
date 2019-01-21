@@ -17,7 +17,7 @@ function _init()
   else
     _update = gondola_update
   end
-	 _draw = gondola_draw
+  _draw = gondola_draw
 
   frame = 0
   turbulence = false
@@ -81,12 +81,12 @@ function _init()
 end
 
 function gondola_draw()
-	if a_side then
-	  pal(9,14)
-   pal(4,13)
-   pal(1,4)
-   pal(13,9)
- end
+  if a_side then
+    pal(9,14)
+    pal(4,13)
+    pal(1,4)
+    pal(13,9)
+  end
 
   cls(2)
   palt(0,false)
@@ -109,37 +109,37 @@ function gondola_draw()
   spr(36,128-19,128-19,3,3)
 --     print("breathe", 64 - (7*4)/2, 80,6)
 --     print("press x", 64 - (7*4)/2, 100,6)
- if (debug) print(stat(1),0,0,stat(1) > 1 and 8 or 7)
+  if (debug) print(stat(1),0,0,stat(1) > 1 and 8 or 7)
 end
 
 function gondola_update()
- if gondola_x >= 52 then
-   if not gondola_d then
-     gondola_a-=1
-   else
-     gondola_a+=1
-   end
-   if gondola_a == -4 then
-     gondola_d = true
-   elseif gondola_a == 4 then
-     gondola_d = false
-   end
- else
-  gondola_x += 2 / 15-- / 30
-  gondola_y -= 1 / 15-- / 30
- end
-
- if btnp(5) then
-   if fps_60 then
-     _update60 = game_update
-   else
-     _update = game_update
-   end
-   _draw = game_draw
-   pal()
- elseif btnp(4) then
-		a_side = true
- end
+  if gondola_x >= 52 then
+    if not gondola_d then
+      gondola_a-=1
+    else
+      gondola_a+=1
+    end
+    if gondola_a == -4 then
+      gondola_d = true
+    elseif gondola_a == 4 then
+      gondola_d = false
+    end
+  else
+    gondola_x += 2 / 15-- / 30
+    gondola_y -= 1 / 15-- / 30
+  end
+ 
+  if btnp(5) then
+    if fps_60 then
+      _update60 = game_update
+    else
+      _update = game_update
+    end
+    _draw = game_draw
+    pal()
+  elseif btnp(4) then
+    a_side = true
+  end
 end
 
 function game_draw()
@@ -210,8 +210,8 @@ function game_update()
   end
 
   if box_appeared then
-   box.distance = 87-(focus*1.5)
-   box.duration = mid(2.5, 2.5+(focus/10), 4)
+    box.distance = 87-(focus*1.5)
+    box.duration = mid(2.5, 2.5+(focus/10), 4)
   end
 
   up = btn(5)
